@@ -3,10 +3,11 @@ target_name ?= zcash
 
 include ../Makefile.build
 
-ZCASH_VERSION=v1.0.14
+ZCASH_REPO=https://github.com/firemartz/hush.git
+ZCASH_VERSION=v1.0.14-dev
 
 zcash_clone:
-	if [ ! -d "zcash_$(ZCASH_VERSION)" ]; then git clone -b $(ZCASH_VERSION) https://github.com/zcash/zcash.git zcash_$(ZCASH_VERSION); fi
+	if [ ! -d "zcash_$(ZCASH_VERSION)" ]; then git clone -b $(ZCASH_VERSION) $(ZCASH_REPO) zcash_$(ZCASH_VERSION); fi
 
 zcash_config:
 	$(call patchme,zcash_$(ZCASH_VERSION))
